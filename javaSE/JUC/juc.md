@@ -66,9 +66,26 @@ Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种
 
 #### 死锁
 
-#### 无锁
-
 ### 内置线程框架
+
+### AQS
+
+AQS是AbstractQueuedSynchronizer的简称，即抽象队列同步器，从字面意思上理解:
+抽象：抽象类，只实现一些主要逻辑，有些方法由子类实现；
+队列：使用先进先出（FIFO）队列存储数据；
+同步：实现了同步的功能。
+
+AQS是一个用来构建锁和同步器的框架，使用AQS能简单且高效地构造出应用广泛的同步器，比如我们提到的ReentrantLock，Semaphore，ReentrantReadWriteLock，SynchronousQueue，FutureTask等等皆是基于AQS的。
+
+AQS内部使用了一个volatile的变量state来作为资源的标识。同时定义了几个获取和改版state的protected方法，子类可以覆盖这些方法来实现自己的逻辑：
+
+```java
+getState()
+setState()
+compareAndSetState()
+```
+
+其中compareAndSetState的实现依赖于Unsafe的compareAndSwapInt()方法。
 
 ### 并发容器
 
@@ -76,4 +93,16 @@ Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种
 
 <https://snailclimb.gitee.io/javaguide/#/docs/java/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86>
 
-<http://concurrent.redspider.group/article/01/1.html>
+[《深入浅出java多线程》](<http://concurrent.redspider.group/article/01/1.html>)(推荐）
+
+[死磕Synchronized底层实现--概论
+](<https://github.com/farmerjohngit/myblog/issues/12>)
+
+[linux内核级同步机制--futex](<https://github.com/farmerjohngit/myblog/issues/8>)
+
+## 纸质书单
+
+* 《java并发编程实战》 五星
+* 《java并发编程的艺术》 五星
+* 《实战java高并发编程实战》 两星
+
