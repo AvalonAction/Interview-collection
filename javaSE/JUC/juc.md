@@ -102,7 +102,5 @@ compareAndSetState()
 
 ## 纸质书单
 
-* 《java并发编程实战》 五星
-* 《java并发编程的艺术》 五星
-* 《实战java高并发编程实战》 两星
+
 
